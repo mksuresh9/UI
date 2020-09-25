@@ -1,0 +1,67 @@
+@import "nesting";
+
+// variables
+$myFont: Helvetica, sans-serif;
+$myColor: red;
+$myFontSize: 18px;
+$myWidth: 680px;
+
+
+body {
+  font-family: $myFont;
+  font-size: $myFontSize;
+  
+}
+
+#container {
+  width: $myWidth;
+  color: $myColor;
+}
+
+//nesting
+
+
+//@mixin
+.container{
+  background-color: green;
+}
+
+
+@mixin sample-text {
+
+  color: blue($color: #000000);
+  margin: 0px;
+  padding: 12px;
+  font-size: 32px;
+  font-weight: bold;
+  border: 5px solid blueviolet;
+  
+}
+
+.include {
+  @include sample-text();
+  background-color: red;
+}
+
+
+//extend
+
+.button-basic  {
+  border: none;
+  margin: 20px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-report  {
+  @extend .button-basic;
+  background-color: red;
+}
+
+.button-submit  {
+  @extend .button-basic;
+  background-color: green;
+  color: white;
+}
